@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { saveTokens } from "../utils/auth";
+import { Link } from "react-router-dom";
 
 interface LoginForm {
   username: string;
@@ -98,9 +99,9 @@ function Login() {
 
         <div className="mt-4 text-xl">
           Don't have an account?{" "}
-          <a href="/signup" className="text-blue-600 hover:underline">
+          <Link to="/signup" className="text-blue-600 hover:underline">
             Sign up
-          </a>
+          </Link>
         </div>
       </div>
     </div>
