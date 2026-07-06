@@ -12,7 +12,7 @@ interface ProductCardProps {
 }
 
 function ProductCard({ product }: ProductCardProps) {
-    const BASEURL = import.meta.env.VITE_DJANGO_BASE_URL as string;
+    // const BASEURL = import.meta.env.VITE_DJANGO_BASE_URL as string;
   return (
     <Link to={`/product/${product.id}`}>
       <div className="bg-white rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-transform p-4 cursor-pointer">
