@@ -8,8 +8,7 @@ db.sqlite3
 venv/
 env/
 
-# Media
-media/
+
 
 # React
 frontend/node_modules/
