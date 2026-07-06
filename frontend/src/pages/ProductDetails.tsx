@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -18,6 +19,7 @@ function ProductDetails() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${BASEURL}/api/products/${id}/`)
@@ -50,12 +52,13 @@ function ProductDetails() {
   }
 
   const handleAddToCart = () => {
-    if(!localStorage.getItem('access_token')){
-      window.location.href = '/login';
-      return;
-    }
-    addToCart(product.id);
+  if (!localStorage.getItem("access_token")) {
+    navigate("/login");
+    return;
   }
+
+  addToCart(product.id);
+};
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center py-10">
