@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.sqlite3
+db.sqlite3
+
+# Virtual Environment
+venv/
+env/
+
+# Media
+media/
+
+# React
+frontend/node_modules/
+frontend/dist/
+
+# Environment
+.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
