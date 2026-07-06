@@ -32,6 +32,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
+    ".onrender.com",
 ]
 
 
@@ -134,7 +135,13 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",    
+    "http://localhost:5173",
+    "https://jazzy-twilight-8056ef.netlify.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
+    "https://jazzy-twilight-8056ef.netlify.app",
 ]
 
 MEDIA_URL = '/media/'
