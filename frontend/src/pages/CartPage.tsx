@@ -8,11 +8,14 @@ function CartPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 pt-24">
-      <h1 className="text-5xl font-extrabold mb-8 mt-6 text-center">🛒 Your Cart</h1>
+      <h1 className="text-5xl font-extrabold mb-8 mt-6 text-center">
+        🛒 Your Cart
+      </h1>
 
       {cartItems.length === 0 ? (
-        <p className="text-center text-3xl font-semibold text-gray-600 mt-10">Your cart is empty.</p>
-        
+        <p className="text-center text-3xl font-semibold text-gray-600 mt-10">
+          Your cart is empty.
+        </p>
       ) : (
         <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
           {cartItems.map((item) => (
@@ -23,7 +26,7 @@ function CartPage() {
               <div className="flex items-center gap-4">
                 {item.product_image && (
                   <img
-                    src={`${BASEURL}${item.product_image}`}
+                    src={item.product_image}
                     alt={item.product_name}
                     className="w-20 h-20 object-cover rounded"
                   />
