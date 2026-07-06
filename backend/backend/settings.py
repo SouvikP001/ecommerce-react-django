@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'store',
     "corsheaders",
     'rest_framework_simplejwt',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -144,8 +145,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://jazzy-twilight-8056ef.netlify.app",
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 REST_FRAMEWORK = {
@@ -163,4 +164,27 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
     'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+
+# AWS S3 Configuration
+
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = "ap-south-1"
+
+AWS_S3_SIGNATURE_VERSION = "s3v4"
+
+AWS_QUERYSTRING_AUTH = False
+
+AWS_DEFAULT_ACL = None
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
 }
