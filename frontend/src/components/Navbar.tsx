@@ -19,31 +19,31 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow-md px-8 py-6 flex justify-between items-center fixed w-full top-0 z-50">
+    <nav className="bg-white shadow-md px-4 md:px-8 py-4 md:py-6 flex flex-wrap justify-between items-center fixed w-full top-0 z-50">
 
     {/* Logo */}
     <Link
         to="/"
-        className="text-3xl font-extrabold tracking-wide text-blue-700"
+        className="text-2xl md:text-3xl font-extrabold tracking-wide text-blue-700"
     >
         🛍️ QuickBasket
     </Link>
 
     {/* Right Side */}
-    <div className="flex items-center gap-8">
+    <div className="flex flex-wrap items-center justify-end gap-3 md:gap-8">
 
         {!isLoggedIn ? (
             <>
                 <Link
                     to="/login"
-                    className="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition"
+                    className="text-base md:text-2xl font-semibold text-gray-800 hover:text-blue-600 transition"
                 >
                     Login
                 </Link>
 
                 <Link
                     to="/signup"
-                    className="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition"
+                    className="text-base md:text-2xl font-semibold text-gray-800 hover:text-blue-600 transition"
                 >
                     Sign Up
                 </Link>
@@ -51,7 +51,7 @@ function Navbar() {
         ) : (
             <button
                 onClick={handleLogout}
-                className="text-2xl font-semibold text-gray-800 hover:text-red-600 transition"
+                className="text-base md:text-2xl font-semibold text-gray-800 hover:text-blue-600 transition"
             >
                 Logout
             </button>
@@ -59,12 +59,12 @@ function Navbar() {
 
         <Link
             to="/cart"
-            className="relative text-3xl font-semibold text-gray-800 hover:text-blue-600 transition"
+            className="relative text-lg md:text-3xl font-semibold text-gray-800 hover:text-blue-600 transition"
         >
             🛒 Cart
 
             {cartCount > 0 && (
-                <span className="absolute -top-2 -right-4 bg-red-500 text-white text-xs font-bold rounded-full px-2 py-0.5">
+                <span className="absolute -top-2 -right-3 md:-right-4 bg-red-500 text-white text-[10px] md:text-xs font-bold rounded-full px-1.5 md:px-2 py-0.5">
                     {cartCount}
                 </span>
             )}
