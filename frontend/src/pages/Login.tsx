@@ -44,7 +44,10 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          username: form.username.trim().replace(/\s+/g, "_"),
+        }),
       });
 
       const data: TokenResponse | { detail: string } = await res.json();
