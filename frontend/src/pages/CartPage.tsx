@@ -13,9 +13,26 @@ function CartPage() {
       </h1>
 
       {cartItems.length === 0 ? (
-        <p className="text-center text-3xl font-semibold text-gray-600 mt-10">
-          Your cart is empty.
-        </p>
+        <div className="max-w-md mx-auto mt-12">
+          <div className="bg-white rounded-2xl shadow-lg p-10 text-center border border-gray-200">
+            <div className="text-7xl mb-4">🛒</div>
+
+            <h2 className="text-3xl font-bold text-gray-800 mb-3">
+              Your Cart is Empty
+            </h2>
+
+            <p className="text-gray-600 text-lg mb-6">
+              Looks like you haven't added any products yet.
+            </p>
+
+            <Link
+              to="/"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition"
+            >
+              Continue Shopping
+            </Link>
+          </div>
+        </div>
       ) : (
         <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
           {cartItems.map((item) => (
