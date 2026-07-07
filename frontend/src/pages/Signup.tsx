@@ -50,7 +50,10 @@ function Signup() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          username: form.username.trim().replace(/\s+/g, "_"),
+        }),
       });
 
       const data: ErrorResponse = await res.json();
@@ -87,7 +90,7 @@ function Signup() {
             name="username"
             value={form.username}
             onChange={handleChange}
-            placeholder="Username"
+            placeholder="Full Name"
             required
             className="w-full p-4 text-lg border rounded"
           />
